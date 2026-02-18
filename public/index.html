@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Send Email — Nodemailer</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Send Test Email</h1>
+
+      <form id="emailForm">
+        <label>Recipient email
+          <input type="email" id="to" required placeholder="recipient@example.com" />
+        </label>
+
+        <label>Recipient name
+          <input type="text" id="name" placeholder="Recipient name" />
+        </label>
+
+        <label>Subject
+          <input type="text" id="subject" required placeholder="Subject" />
+        </label>
+
+        <label>Message
+          <textarea id="message" rows="6" placeholder="Write your message here..."></textarea>
+        </label>
+
+        <button type="submit">Send Email</button>
+      </form>
+
+      <div id="status" aria-live="polite"></div>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

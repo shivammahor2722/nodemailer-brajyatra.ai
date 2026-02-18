@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Welcome to {{siteName}}</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+body{
+  margin:0;
+  padding:0;
+  background:#eef2ff;
+  font-family:'Inter',sans-serif;
+}
+
+.wrapper{
+  max-width:620px;
+  margin:40px auto;
+  background:#ffffff;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 30px 60px rgba(0,0,0,0.1);
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#4f46e5,#06b6d4);
+  padding:60px 30px;
+  text-align:center;
+  color:white;
+  position:relative;
+}
+
+.hero h1{
+  margin:0;
+  font-size:34px;
+  font-weight:800;
+}
+
+.hero p{
+  margin-top:12px;
+  font-size:16px;
+  opacity:0.95;
+}
+
+/* IMAGE SECTION */
+.banner{
+  width:100%;
+  height:220px;
+  background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+}
+
+/* CONTENT */
+.content{
+  padding:40px 35px;
+}
+
+.greeting{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.text{
+  font-size:15px;
+  color:#475569;
+  margin-bottom:30px;
+}
+
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:space-between;
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.stat-box{
+  flex:1;
+}
+
+.stat-box h3{
+  margin:0;
+  font-size:20px;
+  color:#4f46e5;
+}
+
+.stat-box p{
+  margin-top:5px;
+  font-size:12px;
+  color:#64748b;
+}
+
+/* FEATURE CARDS */
+.feature{
+  background:#f8fafc;
+  padding:18px;
+  border-radius:16px;
+  margin-bottom:15px;
+  border:1px solid #e2e8f0;
+}
+
+.feature h4{
+  margin:0 0 6px;
+  font-size:15px;
+}
+
+.feature p{
+  margin:0;
+  font-size:13px;
+  color:#64748b;
+}
+
+/* CTA */
+.cta{
+  text-align:center;
+  margin:40px 0 10px;
+}
+
+.cta a{
+  background:linear-gradient(90deg,#6366f1,#ec4899);
+  color:white !important;
+  text-decoration:none;
+  padding:16px 45px;
+  border-radius:50px;
+  font-weight:700;
+  font-size:15px;
+  display:inline-block;
+  box-shadow:0 15px 30px rgba(236,72,153,0.3);
+}
+
+/* FOOTER */
+.footer{
+  background:#f1f5f9;
+  padding:25px;
+  text-align:center;
+  font-size:12px;
+  color:#64748b;
+}
+
+@media(max-width:480px){
+  .stats{flex-direction:column; gap:15px;}
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+
+  <div class="hero">
+    <h1>Your AI Travel Journey Begins</h1>
+    <p>Welcome to {{siteName}} 🌍</p>
+  </div>
+
+  <div class="banner"></div>
+
+  <div class="content">
+
+    <div class="greeting">Hi {{recipient}},</div>
+
+    <div class="text">
+      With {{siteName}}, planning is no longer stressful. 
+      Our AI crafts intelligent itineraries tailored to your vibe, budget, and time instantly.
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat-box">
+        <h3>1K+</h3>
+        <p>Trips Generated</p>
+      </div>
+      <div class="stat-box">
+        <h3>4.9★</h3>
+        <p>User Rating</p>
+      </div>
+      <div class="stat-box">
+        <h3>10+</h3>
+        <p>Destinations</p>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="feature">
+      <h4>🧠 Smart AI Planning</h4>
+      <p>Personalized multi-day travel plans created in seconds.</p>
+    </div>
+
+    <div class="feature">
+      <h4>💎 Hidden Gems</h4>
+      <p>Discover authentic locations beyond tourist maps.</p>
+    </div>
+
+    <div class="feature">
+      <h4>💰 Budget Optimizer</h4>
+      <p>Realistic cost estimates for smarter travel decisions.</p>
+    </div>
+
+    <div class="cta">
+      <a href="https://Brajyatra.AI">Create My First Trip</a>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    © 2026 {{siteName}} • Designed for Modern Explorers ✈️
+  </div>
+
+</div>
+</body>
+</html>
