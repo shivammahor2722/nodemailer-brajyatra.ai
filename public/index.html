@@ -7,30 +7,64 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
+    <div class="bg-blob blob-a" aria-hidden="true"></div>
+    <div class="bg-blob blob-b" aria-hidden="true"></div>
+    <div class="bg-blob blob-c" aria-hidden="true"></div>
     <main class="container">
-      <h1>Send Test Email</h1>
+      <header class="header">
+        <div class="brand">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="3" fill="#0b5cff" />
+            <path d="M4 6l8 6 8-6" stroke="#fff" stroke-width="1.2" fill="none"/>
+          </svg>
+          <h1>Send Test Email</h1>
+        </div>
+        <p class="lead">Quickly compose and preview a test email using your Nodemailer server.</p>
+      </header>
 
-      <form id="emailForm">
-        <label>Recipient email
-          <input type="email" id="to" required placeholder="recipient@example.com" />
-        </label>
+      <section class="card grid">
+        <form id="emailForm" class="form">
+          <div class="row two">
+            <label>
+              <span>Recipient email</span>
+              <input type="email" id="to" required placeholder="recipient@example.com" />
+            </label>
+            <label>
+              <span>Recipient name</span>
+              <input type="text" id="name" placeholder="Recipient name" />
+            </label>
+          </div>
 
-        <label>Recipient name
-          <input type="text" id="name" placeholder="Recipient name" />
-        </label>
+          <label>
+            <span>Subject</span>
+            <input type="text" id="subject" required placeholder="Subject" />
+          </label>
 
-        <label>Subject
-          <input type="text" id="subject" required placeholder="Subject" />
-        </label>
+          <label>
+            <span>Message</span>
+            <textarea id="message" rows="8" placeholder="Write your message here..."></textarea>
+          </label>
 
-        <label>Message
-          <textarea id="message" rows="6" placeholder="Write your message here..."></textarea>
-        </label>
+          <div class="actions">
+            <button type="submit" class="btn primary" id="sendBtn">
+              <span class="btn-text">Send Email</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="btn ghost" id="resetBtn">Reset</button>
+          </div>
+        </form>
 
-        <button type="submit">Send Email</button>
-      </form>
+        <aside class="preview">
+          <div class="preview-header">Preview</div>
+          <div class="preview-card" id="previewCard">
+            <div class="preview-to"><strong>To:</strong> <span id="pv-to">—</span></div>
+            <div class="preview-subject" id="pv-subject">(No subject)</div>
+            <div class="preview-body" id="pv-message">Start typing your message to see a live preview.</div>
+          </div>
+        </aside>
+      </section>
 
-      <div id="status" aria-live="polite"></div>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
     </main>
 
     <script src="/app.js"></script>

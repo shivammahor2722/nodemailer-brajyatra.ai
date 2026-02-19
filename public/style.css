@@ -1,12 +1,81 @@
 :root{
-  --bg:#f6f8fa; --card:#fff; --accent:#0b5cff; --muted:#6b7280;
+  --bg:#eef6ff;
+  --card:#ffffff;
+  --accent-1:#0b5cff;
+  --accent-2:#5cc8ff;
+  --muted:#6b7280;
+  --glass: rgba(255,255,255,0.6);
 }
+
 *{box-sizing:border-box}
-body{font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);margin:0;padding:24px}
-.container{max-width:640px;margin:24px auto;padding:20px;background:var(--card);box-shadow:0 6px 20px rgba(2,6,23,0.08);border-radius:8px}
-h1{margin:0 0 16px;font-size:20px}
-form{display:grid;gap:12px}
+body{
+  font-family:Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background: linear-gradient(180deg,var(--bg),#f8fbff);
+  margin:0;padding:28px;color:#0f172a;
+}
+
+/* Decorative background blobs */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+.bg-blob{position:fixed;z-index:0;filter:blur(40px);opacity:0.85;border-radius:50%;transform:translate3d(0,0,0);pointer-events:none}
+.blob-a{width:340px;height:340px;left:-80px;top:-80px;background:radial-gradient(circle at 30% 30%, rgba(11,92,255,0.22), rgba(92,200,255,0.12) 40%, transparent 60%)}
+.blob-b{width:260px;height:260px;right:-60px;top:40px;background:radial-gradient(circle at 20% 20%, rgba(92,200,255,0.18), rgba(11,92,255,0.08) 50%, transparent 70%)}
+.blob-c{width:420px;height:420px;right:-160px;bottom:-140px;background:radial-gradient(circle at 70% 70%, rgba(11,92,255,0.12), rgba(92,200,255,0.06) 40%, transparent 70%)}
+
+@keyframes float-a{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(18px) rotate(6deg)}100%{transform:translateY(0) rotate(0deg)}}
+@keyframes float-b{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-10px) rotate(-4deg)}100%{transform:translateY(0) rotate(0deg)}}
+@keyframes float-c{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(24px) rotate(3deg)}100%{transform:translateY(0) rotate(0deg)}}
+.blob-a{animation:float-a 8s ease-in-out infinite}
+.blob-b{animation:float-b 10s ease-in-out infinite}
+.blob-c{animation:float-c 12s ease-in-out infinite}
+
+/* ensure content sits above background */
+.container{position:relative;z-index:1;}
+
+.container{max-width:980px;margin:28px auto;padding:22px;border-radius:12px}
+
+.header{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand h1{font-size:20px;margin:0;color:var(--accent-1)}
+.lead{margin:0;color:var(--muted);font-size:13px}
+
+.card{display:grid;grid-template-columns:1fr;gap:18px;background:linear-gradient(180deg,var(--card),var(--glass));padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(7,22,58,0.06);border:1px solid rgba(11,92,255,0.04)}
+
+.grid{align-items:start}
+
+.form{display:flex;flex-direction:column;gap:12px}
+.row.two{display:grid;grid-template-columns:1fr;gap:12px}
 label{display:flex;flex-direction:column;font-size:13px;color:var(--muted)}
-input,textarea{margin-top:6px;padding:10px;border:1px solid #e6e9ef;border-radius:6px;font-size:14px}
-button{background:var(--accent);color:#fff;padding:10px 14px;border:0;border-radius:6px;cursor:pointer}
-#status{margin-top:12px;color:var(--muted);font-size:14px}
+label span{font-weight:600;margin-bottom:6px}
+input,textarea{margin:0;padding:12px;border:1px solid #e6eefb;border-radius:10px;font-size:14px;background:#fbfdff}
+textarea{resize:vertical;min-height:120px}
+
+.actions{display:flex;gap:10px;align-items:center;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;border:1px solid transparent;font-weight:600;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;box-shadow:0 6px 18px rgba(11,92,255,0.16)}
+.btn.ghost{background:transparent;border:1px solid rgba(11,92,255,0.08);color:var(--accent-1)}
+.btn .spinner{width:14px;height:14px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);border-top-color:rgba(255,255,255,0.95);display:inline-block;visibility:hidden}
+.btn.sending .spinner{visibility:visible;animation:spin 0.9s linear infinite}
+.btn.sending .btn-text{opacity:0.9}
+
+.preview{background:linear-gradient(180deg,#fcfdff,#f8fbff);padding:12px;border-radius:10px;border:1px solid rgba(11,92,255,0.04)}
+.preview-header{font-weight:700;margin-bottom:8px;color:#0b5cff}
+.preview-card{background:white;padding:12px;border-radius:8px;box-shadow:0 6px 18px rgba(8,20,45,0.04);min-height:160px}
+.preview-to,.preview-subject{color:var(--muted);font-size:13px;margin-bottom:6px}
+.preview-subject{font-weight:600;color:#0f172a}
+.preview-body{white-space:pre-wrap;color:#0b1b33}
+
+.toast{position:fixed;right:18px;bottom:18px;background:#0b5cff;color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 8px 26px rgba(11,92,255,0.16);transform:translateY(10px);opacity:0;pointer-events:none;transition:opacity .22s,transform .22s}
+.toast.show{opacity:1;transform:translateY(0);pointer-events:auto}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(min-width:900px){
+  .card{grid-template-columns:1fr 360px}
+  .row.two{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:479px){
+  .container{padding:12px}
+  .brand h1{font-size:16px}
+}
